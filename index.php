@@ -3,8 +3,12 @@ session_name("lw-session");
 session_start();
 
 
-$url = "127.0.0.1";
-$port = "3000";
+$json = file_get_contents("./config.json");
+$data = json_decode($json);
+
+$url = $data->serverIP;
+$port = $data->port;
+
 
 $username = $_SESSION['username'];
 $passwordSession = $_SESSION['password'];
@@ -45,19 +49,27 @@ if (empty($username) || empty($passwordSession)) {
 
 
             foreach ($data1 as $key => $value) {
+                if (!empty($value->avatarURL)) {
+                    $avatarURL = $value->avatarURL;
+                } else {
+                    $avatarURL = "https://cdn.discordapp.com/avatars/873639725171359814/527e4f194fc8dd32acf5667cae2d7745.webp";
+                }
 
                 echo '
                 
                 <div class="card">
                     <div class="flipcardfront">
-                        <img src="'.$value->avatarURL.'" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
+                        <img src="'.$avatarURL.'" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
                         <div class="container">
                                 <h4><b>'. $value->name .'</b></h4> 
                                 <p>' . $value->id  . '</p> 
                         </div>
                     </div>
                     <div class="flipcardback">
-                        PENIS
+                        <div class="container">
+                                <p class="flipcardback-text" name="' . $value->id  . '">' . $value->id  . '</p>
+                                <input type="submit" onclick="submit(\'' . $value->id  . '\')" value="Ban User" class="ban-button"></input>
+                        </div>
                     </div>
                 </div>
 
@@ -66,6 +78,19 @@ if (empty($username) || empty($passwordSession)) {
         ?>
        
     </div>
+    <script language="javascript">
+        function submit(id) {
+            console.log(id);
+            let userID = String(id);
+            let reason = prompt("Enter reason for ban:", "Reason");
+            sendData({
+                "userID": userID,
+                "reason": reason
+            });
+
+            location.reload();
+        }
+    </script>
 </body>
 <script src="js/main.js"></script>
 </html>

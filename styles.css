@@ -43,16 +43,51 @@ body {
 }
 .flipcardback {
 	transform: rotateY(180deg);
-	position: absolute;
 	top: 0;
+
+	position: absolute;
 }
 .container {
 	padding: 2px 16px;
 }
-
+.flipcardback-text {
+	text-align: center;
+	padding: 50px 72px;
+}
 .box:last-child {
 	margin-right: 0;
 }
+
+.ban-button {
+	position: absolute;
+	background-color: transparent;
+	color: white;
+	padding: 0 10px;
+	left: 71px;
+	border: 3px solid #a50000;
+	width: 60%;
+	border-radius: 9px;
+	font-size: 24px;
+	transition-duration: 0.4s;
+}
+
+.flipcardback-input {
+	position: absolute;
+	top: 50%;
+	left: 39%;
+	background-color: transparent;
+	color: white;
+	border: none;
+	font-size: 24px;
+	transition-duration: 0.4s;
+}
+
+.ban-button:hover {
+	background-color: #ff0000;
+	border: 2px solid #ff0000;
+	color: white;
+}
+
 @media screen and (max-width: 600px) {
 	.card {
 		width: 100% !important;

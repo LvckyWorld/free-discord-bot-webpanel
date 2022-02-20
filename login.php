@@ -3,8 +3,12 @@ session_name("lw-session");
 session_start();
 
 
-$url = "127.0.0.1";
-$port = "3000";
+$json = file_get_contents("./config.json");
+$data = json_decode($json);
+
+$url = $data->serverIP;
+$port = $data->port;
+
 
 if (!empty($_POST['username']) || !empty($_POST['password'])) {
     $username = $_POST['username'];
