@@ -2,7 +2,7 @@
 session_name("lw-session");
 session_start();
 
-$json = file_get_contents("./config.json");
+$json = file_get_contents("../config.json");
 $data = json_decode($json);
 
 $url = $data->serverIP;
@@ -21,6 +21,7 @@ if (empty($username) || empty($passwordSession)) {
     for ($i = 0; $i<count($data); $i++) {
         $name = $data[$i]->name;
         $password =  $data[$i]->password;
+        
         if ($username == $name && $passwordSession == $password) {
             $userID = $_POST['userID'];
             $reason = $_POST['reason'];
@@ -44,9 +45,7 @@ if (empty($username) || empty($passwordSession)) {
             $context = stream_context_create($opts);
             $result = file_get_contents("http://".$url.":".$port."/", false, $context);
 
-            header("HTTP/1.1 202 Accepted ". $reason . "  " . $userID);
-            
-        } else {
+            header("HTTP/1.1 202 Accepted ". $reason . "  " . $userID);   
         }
     }
 }

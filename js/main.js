@@ -25,9 +25,11 @@ function sendData( data ) {
     XHR.addEventListener( 'error', function(event) {
     } );
   
-    XHR.open( 'POST', './ban.php' );
+    XHR.open( 'POST', '../ban/ban.php' );
   
     XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
   
-    XHR.send( urlEncodedData );
+    XHR.send( urlEncodedData )
+
+    
   }
