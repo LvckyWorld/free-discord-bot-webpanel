@@ -22,13 +22,13 @@ if (empty($username) || empty($passwordSession)) {
         $name = $data[$i]->name;
         $password =  $data[$i]->password;
         if ($username == $name && $passwordSession == $password) {
-            $userID = $_POST['userID'];
-            $reason = $_POST['reason'];
+            
+            $discorid = $data[$i]->discordID;
+            $newpassword = $_POST['password'];
             $postdata = http_build_query(
                 array(
-                    'action' => "banuser",
-                    'id' => $userID,
-                    'reason' => $reason
+                    'newpassword' => $newpassword,
+                    'discordid' => $discorid
                 )
             );
             $opts = array('http' =>
@@ -42,9 +42,8 @@ if (empty($username) || empty($passwordSession)) {
                 )
             );
             $context = stream_context_create($opts);
-            $result = file_get_contents("http://".$url.":".$port."/", false, $context);
-
-            header("HTTP/1.1 202 Accepted ". $reason . "  " . $userID);
+            $result = file_get_contents("http://".$url.":".$port."/changepw", false, $context);
+            header('Location: ./index.php');
             
         } else {
         }

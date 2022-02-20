@@ -23,11 +23,27 @@ if (empty($username) || empty($passwordSession)) {
         $name = $data[$i]->name;
         $password =  $data[$i]->password;
         if ($username == $name && $passwordSession == $password) {
+            if ($passwordSession == "2779a3aa8bf314bcdc426d29680e4a9499f5b6d9b285895bf0afc29c5969d5ba") {
+                echo '
+                <!DOCTYPE html>
+                
+                <link rel="stylesheet" href="styles.css">
+                <html lang="en">
+                    <div class="overlay">
+                        <div class="changePassword">
+                            <form method="post" action="./changePassword.php">
+                                <input type="password" name="password" placeholder="Password" required>
+                                <input type="password" name="password1" placeholder="Password Again" required>
 
-        } else {
-            session_destroy();
-            header("Location: login.php");
-            exit;
+                                <input type="submit" value="Change Password">
+                            </form>
+                        </div>
+                    </div>
+                </html>
+                
+                ';
+                exit;
+            }
         }
     }
 }
