@@ -9,7 +9,6 @@ $port = "3000";
 if (!empty($_POST['username']) || !empty($_POST['password'])) {
     $username = $_POST['username'];
     $passwordPost = hash("sha256", $_POST['password']);
-
     $json = file_get_contents("http://".$url.":".$port."/admins");
     $data = json_decode($json);
     

@@ -8,8 +8,7 @@ $port = "3000";
 
 $username = $_SESSION['username'];
 $passwordSession = $_SESSION['password'];
-echo $username;
-if (empty($username) || empty($password)) {
+if (empty($username) || empty($passwordSession)) {
     header("Location: login.php");
     exit;
 } else {
@@ -22,7 +21,9 @@ if (empty($username) || empty($password)) {
         if ($username == $name && $passwordSession == $password) {
 
         } else {
-
+            session_destroy();
+            header("Location: login.php");
+            exit;
         }
     }
 }
@@ -34,8 +35,31 @@ if (empty($username) || empty($password)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="box">
+        <?php
+            $json1 = file_get_contents("http://".$url.":".$port."/userlist");
+            $data1 = json_decode($json1);
+
+
+            foreach ($data1 as $key => $value) {
+
+                echo '
+                
+                <div class="card">
+                    <img src="'.$value->avatarURL.'" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
+                    <div class="container">
+                            <h4><b>'. $value->name .'</b></h4> 
+                            <p>' . $value->id  . '</p> 
+                    </div>
+                </div>
+
+                ';
+            }
+        ?>
+       
+    </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 	margin: auto;
 	width: 50%;
 	padding: 10px;
-	background-color: #292d3e;
+	background-color: #1c1f2b;
 	border-radius: 15px;
 	color: white;
 	text-align: center;
@@ -11,4 +11,43 @@
 }
 body {
 	background-color: #1c1f2b;
+}
+
+.card {
+	float: left;
+	margin-right: 5%;
+	background-color: #292d3e;
+	box-shadow: 0 4px 8px 0 rgba(15, 15, 15, 0.2);
+	transition: 0.3s;
+	width: 20.00%;
+	color: white;
+	font-family: 'Courier New', Courier, monospace;
+	border-radius: 12px;
+
+	margin-bottom: 2% !important;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+	padding: 2px 16px;
+}
+
+.box:last-child {
+	margin-right: 0;
+}
+@media screen and (max-width: 600px) {
+	.card {
+		width: 100% !important;
+		margin-right: 0 !important;
+		margin-bottom: 2% !important;
+	}
+}
+@media screen and (max-width: 1000px) {
+	.card {
+		width: 40%;
+		margin-bottom: 2%;
+	}
 }
