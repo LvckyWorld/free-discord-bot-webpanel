@@ -30,6 +30,4 @@ function sendData( data ) {
     XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
   
     XHR.send( urlEncodedData )
-
-    
   }

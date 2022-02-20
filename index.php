@@ -58,7 +58,7 @@ if (empty($username) || empty($passwordSession)) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <a href="ban">Ban</a>
 </body>
 <script src="js/main.js"></script>
 </html>
