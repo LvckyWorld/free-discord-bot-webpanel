@@ -21,7 +21,6 @@ if (empty($username) || empty($passwordSession)) {
     for ($i = 0; $i<count($data); $i++) {
         $name = $data[$i]->name;
         $password =  $data[$i]->password;
-        
         if ($username == $name && $passwordSession == $password) {
             $userID = $_POST['userID'];
             $reason = $_POST['reason'];

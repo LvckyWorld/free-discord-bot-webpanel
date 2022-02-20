@@ -40,7 +40,6 @@ if (empty($username) || empty($passwordSession)) {
                         </div>
                     </div>
                 </html>
-                
                 ';
                 exit;
             }
