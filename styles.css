@@ -23,14 +23,29 @@ body {
 	color: white;
 	font-family: 'Courier New', Courier, monospace;
 	border-radius: 12px;
-
 	margin-bottom: 2% !important;
-}
 
+	perspective: 1000px;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+.card.flip {
+	transform: rotateY(180deg);
+}
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+.flipcardfront,
+.flipcardback {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.flipcardback {
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+}
 .container {
 	padding: 2px 16px;
 }

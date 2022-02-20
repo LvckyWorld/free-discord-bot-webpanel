@@ -49,10 +49,15 @@ if (empty($username) || empty($passwordSession)) {
                 echo '
                 
                 <div class="card">
-                    <img src="'.$value->avatarURL.'" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
-                    <div class="container">
-                            <h4><b>'. $value->name .'</b></h4> 
-                            <p>' . $value->id  . '</p> 
+                    <div class="flipcardfront">
+                        <img src="'.$value->avatarURL.'" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
+                        <div class="container">
+                                <h4><b>'. $value->name .'</b></h4> 
+                                <p>' . $value->id  . '</p> 
+                        </div>
+                    </div>
+                    <div class="flipcardback">
+                        PENIS
                     </div>
                 </div>
 
@@ -62,4 +67,5 @@ if (empty($username) || empty($passwordSession)) {
        
     </div>
 </body>
+<script src="js/main.js"></script>
 </html>
