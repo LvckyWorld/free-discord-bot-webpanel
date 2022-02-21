@@ -59,7 +59,7 @@ if (empty($username) || empty($passwordSession)) {
                if (!(empty($avatarurl))) {
                     $postdata = http_build_query(
                          array(
-                             'action' => "changeavatarurl",
+                             'action' => "changeavatar",
                              'avatarurl' => $avatarurl,
                          )
                      );
