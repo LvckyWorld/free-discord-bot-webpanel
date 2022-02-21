@@ -5,6 +5,7 @@ session_start();
 
 $json = file_get_contents("../config.json");
 $data = json_decode($json);
+$conf = $data;
 
 $url = $data->serverIP;
 $port = $data->port;
@@ -38,7 +39,7 @@ if (empty($username) || empty($passwordSession)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo $conf->title; ?> - Customize</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
@@ -75,14 +76,10 @@ if (empty($username) || empty($passwordSession)) {
     });
 
     function submit(username, avatarurl) {
-
-
         sendChangeData({
             "newUsername": username,
             "avatarurl": avatarurl
         });
-
-
     }
 </script>
 

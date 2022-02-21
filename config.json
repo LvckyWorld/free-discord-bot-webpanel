@@ -1,5 +1,6 @@
 {
     "serverIP": "127.0.0.1",
     "port": "3000",
-    "verifyHeader": "12345"
+    "verifyHeader": "12345",
+    "title": "LvckyPanel"
 }
