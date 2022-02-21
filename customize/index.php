@@ -43,14 +43,43 @@ if (empty($username) || empty($passwordSession)) {
 </head>
 
 <body>
-    <form>
+    <form id="changeform">
         <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
+        <input type="text" id="username" name="username" placeholder="Username"><br>
         <label for="avatarurl">AvatarURL</label><br>
-        <input type="text" id="avatarurl" name="avatarurl"><br>
-        <input type="submit" value="Submit">
+        <input type="text" id="avatarurl" name="avatarurl" placeholder="AvatarURL"><br>
+
+        <button type="submit" id="submitbutton">Submit</button>
     </form>
 </body>
+
+<script language="javascript">
+    let changeform = document.getElementById("changeform");
+    let submitbutton = document.getElementById("submitbutton");
+    var username = document.getElementById("username");
+    var avatarurl = document.getElementById("avatarurl");
+
+    changeform.addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (!(username.value == "" && avatarurl.value == "")) {
+            submit(username.value, avatarurl.value);
+        } else
+            console.log("Error you have to fill in one of the fields");
+
+    });
+
+    function submit(username, avatarurl) {
+
+        
+        sendChangeData({
+            "newUsername": username,
+            "avatarurl": avatarurl
+        });
+
+        
+    }
+</script>
+
 <script src="../js/main.js"></script>
 
 </html>

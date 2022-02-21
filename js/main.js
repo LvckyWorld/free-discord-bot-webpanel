@@ -31,3 +31,30 @@ function sendData( data ) {
   
     XHR.send( urlEncodedData )
   }
+
+  function sendChangeData( data ) {
+  
+    const XHR = new XMLHttpRequest();
+  
+    let urlEncodedData = "",
+        urlEncodedDataPairs = [],
+        name;
+  
+    for( name in data ) {
+      urlEncodedDataPairs.push( encodeURIComponent( name ) + '=' + encodeURIComponent( data[name] ) );
+    }
+  
+    urlEncodedData = urlEncodedDataPairs.join( '&' ).replace( /%20/g, '+' );
+  
+    XHR.addEventListener( 'load', function(event) {
+    } );
+  
+    XHR.addEventListener( 'error', function(event) {
+    } );
+  
+    XHR.open( 'POST', '../customize/change.php' );
+  
+    XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+  
+    XHR.send( urlEncodedData )
+  }
