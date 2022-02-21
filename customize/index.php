@@ -48,7 +48,7 @@ if (empty($username) || empty($passwordSession)) {
         <input type="text" id="username" name="username" placeholder="Username"><br>
         <label for="avatarurl">AvatarURL</label><br>
         <input type="text" id="avatarurl" name="avatarurl" placeholder="AvatarURL"><br>
-
+        <div id="formerror" style="color: red;"></div>
         <button type="submit" id="submitbutton">Submit</button>
     </form>
 </body>
@@ -58,14 +58,20 @@ if (empty($username) || empty($passwordSession)) {
     let submitbutton = document.getElementById("submitbutton");
     var username = document.getElementById("username");
     var avatarurl = document.getElementById("avatarurl");
+    var formerror = document.getElementById("formerror");
 
+    let messages = [];
     changeform.addEventListener("submit", function(event) {
         event.preventDefault();
         if (!(username.value == "" && avatarurl.value == "")) {
             submit(username.value, avatarurl.value);
         } else
             console.log("Error you have to fill in one of the fields");
+            messages.push("Error you have to fill in one of the fields");
 
+        if (messages.length > 0) {
+            formerror.innerHTML = messages.join(', ')
+        }
     });
 
     function submit(username, avatarurl) {
