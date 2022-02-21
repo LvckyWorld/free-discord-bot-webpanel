@@ -48,4 +48,3 @@ if (empty($username) || empty($passwordSession)) {
         }
     }
 }
-?>

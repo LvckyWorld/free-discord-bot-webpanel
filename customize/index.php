@@ -70,13 +70,13 @@ if (empty($username) || empty($passwordSession)) {
 
     function submit(username, avatarurl) {
 
-        
+
         sendChangeData({
             "newUsername": username,
             "avatarurl": avatarurl
         });
 
-        
+
     }
 </script>
 

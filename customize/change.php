@@ -59,22 +59,23 @@ if (empty($username) || empty($passwordSession)) {
                if (!(empty($avatarurl))) {
                     $postdata = http_build_query(
                          array(
-                             'action' => "changeavatar",
-                             'avatarurl' => $avatarurl,
+                              'action' => "changeavatar",
+                              'avatarurl' => $avatarurl,
                          )
-                     );
-                     $opts = array('http' =>
+                    );
+                    $opts = array(
+                         'http' =>
                          array(
-                             'method' => 'POST',
-                             'header' => array(
-                                 'Content-type: application/x-www-form-urlencoded',
-                                 'verify: ' . $verifyHeader
-                             ),
-                             'content' => $postdata
+                              'method' => 'POST',
+                              'header' => array(
+                                   'Content-type: application/x-www-form-urlencoded',
+                                   'verify: ' . $verifyHeader
+                              ),
+                              'content' => $postdata
                          )
-                     );
-                     $context = stream_context_create($opts);
-                     $result = file_get_contents("http://".$url.":".$port."/", false, $context);
+                    );
+                    $context = stream_context_create($opts);
+                    $result = file_get_contents("http://" . $url . ":" . $port . "/", false, $context);
                }
           }
      }
