@@ -44,14 +44,16 @@ if (empty($username) || empty($passwordSession)) {
 </head>
 
 <body>
-    <form id="changeform">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" placeholder="Username"><br>
-        <label for="avatarurl">AvatarURL</label><br>
-        <input type="text" id="avatarurl" name="avatarurl" placeholder="AvatarURL"><br>
-        <div id="formerror" style="color: red;"></div>
-        <button type="submit" id="submitbutton">Submit</button>
-    </form>
+    <div class="changeformdiv">
+        <form id="changeform">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" class="changeforminput" placeholder="Username"><br>
+            <label for="avatarurl">AvatarURL</label><br>
+            <input type="text" id="avatarurl" name="avatarurl" class="changeforminput" placeholder="AvatarURL"><br>
+            <div id="formerror" style="color: red;"></div>
+            <button type="submit" id="submitbutton" class="changeformbutton">Submit</button>
+        </form>
+    </div>
 </body>
 
 <script language="javascript">

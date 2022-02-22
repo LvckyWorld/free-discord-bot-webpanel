@@ -58,8 +58,10 @@ if (empty($username) || empty($passwordSession)) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="ban">Ban</a><br>
-    <a href="customize">Customize</a>
+    <ul>
+        <li><a href="ban">Ban</a><br></li>
+        <li><a href="customize">Customize</a></li>
+    </ul>
 </body>
 <script src="js/main.js"></script>
 </html>
