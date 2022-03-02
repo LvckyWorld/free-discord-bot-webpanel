@@ -43,11 +43,12 @@ if (!empty($_POST['username']) || !empty($_POST['password'])) {
 </head>
 <body>
     <div class="center">
-        Login
+        <h1>Login</h1>
         <form method="post" action="./login.php">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" value="Login">
+            <input class="lo_input" type="text" name="username" placeholder="Username"><br>
+            <input class="lo_input" type="password" name="password" placeholder="Password">
+            <br>
+            <input class="lo_input button" type="submit" value="Login">
         </form>
     </div>
 </body>
