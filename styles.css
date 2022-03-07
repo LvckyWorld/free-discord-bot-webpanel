@@ -60,7 +60,7 @@ body {
     color: white;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 40px;
+    font-size: 122%;
 }
 
 .changeforminput {
@@ -218,12 +218,12 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 10%;
+    width: 124px;
     background-color: #292d3e;
     border-bottom-right-radius: 8px;
     position: fixed;
     overflow: auto;
-}
+  }
 
 li a {
     display: block;

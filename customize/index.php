@@ -44,6 +44,11 @@ if (empty($username) || empty($passwordSession)) {
 </head>
 
 <body>
+
+    <ul>
+        <li><a href="../">🠔 Back</a><br></li>
+    </ul>
+
     <div class="changeformdiv">
         <form id="changeform">
             <label for="username">Username:</label><br>
@@ -70,7 +75,7 @@ if (empty($username) || empty($passwordSession)) {
             submit(username.value, avatarurl.value);
         } else
             console.log("Error you have to fill in one of the fields");
-            messages.push("Error you have to fill in one of the fields");
+        messages.push("Error you have to fill in one of the fields");
 
         if (messages.length > 0) {
             formerror.innerHTML = messages.join(', ')

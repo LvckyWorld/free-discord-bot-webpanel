@@ -59,7 +59,7 @@ if (empty($username) || empty($passwordSession)) {
 </head>
 <body>
     <ul>
-        <li><a href="ban">Ban</a><br></li>
+        <li><a href="ban">Ban</a></li>
         <li><a href="customize">Customize</a></li>
     </ul>
 </body>

@@ -17,10 +17,10 @@ if (empty($username) || empty($passwordSession)) {
     header("Location: ../login.php");
     exit;
 } else {
-    $json = file_get_contents("http://".$url.":".$port."/admins");
+    $json = file_get_contents("http://" . $url . ":" . $port . "/admins");
     $data = json_decode($json);
-    
-    for ($i = 0; $i<count($data); $i++) {
+
+    for ($i = 0; $i < count($data); $i++) {
         $name = $data[$i]->name;
         $password =  $data[$i]->password;
         if ($username == $name && $passwordSession == $password) {
@@ -34,6 +34,7 @@ if (empty($username) || empty($passwordSession)) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,27 +42,32 @@ if (empty($username) || empty($passwordSession)) {
     <title><?php echo $conf->title; ?> - Ban</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
+    <ul>
+        <li><a href="../">🠔 Back</a><br></li>
+    </ul>
+
     <div class="box">
         <?php
-            $json1 = file_get_contents("http://".$url.":".$port."/userlist");
-            $data1 = json_decode($json1);
+        $json1 = file_get_contents("http://" . $url . ":" . $port . "/userlist");
+        $data1 = json_decode($json1);
 
 
-            foreach ($data1 as $key => $value) {
-                if (!empty($value->avatarURL)) {
-                    $avatarURL = $value->avatarURL;
-                } else {
-                    $avatarURL = "https://cdn.discordapp.com/avatars/873639725171359814/527e4f194fc8dd32acf5667cae2d7745.webp";
-                }
+        foreach ($data1 as $key => $value) {
+            if (!empty($value->avatarURL)) {
+                $avatarURL = $value->avatarURL;
+            } else {
+                $avatarURL = "https://cdn.discordapp.com/avatars/873639725171359814/527e4f194fc8dd32acf5667cae2d7745.webp";
+            }
 
-                echo '
+            echo '
                 
                 <div class="card">
                     <div class="flipcardfront">
-                        <img src="'.$avatarURL.'" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
+                        <img src="' . $avatarURL . '" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
                         <div class="container">
-                                <h4><b>'. $value->name .'</b></h4> 
+                                <h4><b>' . $value->name . '</b></h4> 
                                 <p>' . $value->id  . '</p> 
                         </div>
                     </div>
@@ -74,9 +80,9 @@ if (empty($username) || empty($passwordSession)) {
                 </div>
 
                 ';
-            }
+        }
         ?>
-       
+
     </div>
     <script language="javascript">
         function submit(id) {
@@ -93,4 +99,5 @@ if (empty($username) || empty($passwordSession)) {
     </script>
 </body>
 <script src="../js/main.js"></script>
+
 </html>
