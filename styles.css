@@ -238,3 +238,50 @@ li a:hover:not(.active) {
     background-color: #555;
     color: white;
 }
+
+.start-text-panel {
+    background-color: #292d3e;
+    position: relative;
+    width: 73%;
+    height: 100%;
+    border-radius: 8px;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+    margin-left: 13.6%;
+    top: 86px;
+    padding-bottom: 26px;
+    padding-top: 26px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 47px;
+}
+
+.start-text-panel h1 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 26px;
+}
+
+.start-text-panel a {
+    -moz-hyphens: auto;
+    -o-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    color: rgb(151, 151, 151)!important;
+    text-align: center;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.start-text-panel-logo {
+    height: auto;
+    width: 88px;
+    margin-bottom: 39px;
+    position: inherit;
+    left: 50%;
+    margin-left: -42px;
+}
