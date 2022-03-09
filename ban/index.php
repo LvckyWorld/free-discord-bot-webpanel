@@ -44,51 +44,59 @@ if (empty($username) || empty($passwordSession)) {
 </head>
 
 <body>
+
     <ul>
-        <li><a href="../">🠔 Back</a><br></li>
+        <li><a href="../">🠔 Back</a></li>
     </ul>
 
-    <div class="box">
-        <?php
-        $json1 = file_get_contents("http://" . $url . ":" . $port . "/userlist");
-        $data1 = json_decode($json1);
+
+    <div class=banpagecontent>
+        <div class="box">
+            <?php
+            $json1 = file_get_contents("http://" . $url . ":" . $port . "/userlist");
+            $data1 = json_decode($json1);
 
 
-        foreach ($data1 as $key => $value) {
-            if (!empty($value->avatarURL)) {
-                $avatarURL = $value->avatarURL;
-            } else {
-                $avatarURL = "https://cdn.discordapp.com/avatars/873639725171359814/527e4f194fc8dd32acf5667cae2d7745.webp";
-            }
+            foreach ($data1 as $key => $value) {
+                if (!empty($value->avatarURL)) {
+                    $avatarURL = $value->avatarURL;
+                } else {
+                    $avatarURL = "https://cdn.discordapp.com/avatars/873639725171359814/527e4f194fc8dd32acf5667cae2d7745.webp";
+                }
 
-            echo '
+                echo '
                 
-                <div class="card">
-                    <div class="flipcardfront">
-                        <img src="' . $avatarURL . '" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
-                        <div class="container">
-                                <h4><b>' . $value->name . '</b></h4> 
-                                <p>' . $value->id  . '</p> 
+                    <div class="card">
+                        <div class="flipcardfront">
+                            <img src="' . $avatarURL . '" alt="Avatar" style="width:100%; border-top-left-radius:  12px; border-top-right-radius:  12px;">
+                            <div class="container">
+                                    <h4><b>' . $value->name . '</b></h4> 
+                                    <p>' . $value->id  . '</p> 
+                            </div>
+                        </div>
+                        <div class="flipcardback">
+                            <div class="container">
+                                    <p class="flipcardback-text" name="' . $value->id  . '">' . $value->id  . '</p>
+                                    <input type="submit" onclick="submit(\'' . $value->id  . '\')" value="Ban User" class="ban-button"></input>
+                            </div>
                         </div>
                     </div>
-                    <div class="flipcardback">
-                        <div class="container">
-                                <p class="flipcardback-text" name="' . $value->id  . '">' . $value->id  . '</p>
-                                <input type="submit" onclick="submit(\'' . $value->id  . '\')" value="Ban User" class="ban-button"></input>
-                        </div>
-                    </div>
-                </div>
-
+            
                 ';
-        }
-        ?>
+            }
+            ?>
 
+        </div>
     </div>
     <script language="javascript">
         function submit(id) {
             console.log(id);
             let userID = String(id);
             let reason = prompt("Enter reason for ban:", "Reason");
+            if (reason == null) {
+                alert("Abort, No reason entered.");
+                return;
+            }
             sendData({
                 "userID": userID,
                 "reason": reason

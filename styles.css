@@ -166,6 +166,10 @@ body {
     background-color: #1c1f2b;
 }
 
+.banpagecontent {
+    margin-top: 50px;
+}
+
 .ban-button {
     position: absolute;
     background-color: transparent;
@@ -223,7 +227,8 @@ ul {
     border-bottom-right-radius: 8px;
     position: fixed;
     overflow: auto;
-  }
+    top: 0px;
+}
 
 li a {
     display: block;
@@ -270,7 +275,7 @@ li a:hover:not(.active) {
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
-    color: rgb(151, 151, 151)!important;
+    color: rgb(151, 151, 151) !important;
     text-align: center;
     width: 100%;
     overflow-x: scroll;

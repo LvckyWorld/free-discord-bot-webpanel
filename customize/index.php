@@ -46,7 +46,7 @@ if (empty($username) || empty($passwordSession)) {
 <body>
 
     <ul>
-        <li><a href="../">🠔 Back</a><br></li>
+        <li><a href="../">🠔 Back</a></li>
     </ul>
 
     <div class="changeformdiv">
